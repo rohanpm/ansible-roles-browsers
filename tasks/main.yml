@@ -1,0 +1,13 @@
+---
+- name: Ensure chrome policy dest dir exists
+  file:
+    name: /etc/opt/chrome/policies/managed/
+    state: directory
+  become: yes
+
+- name: Deploy chrome policy config file
+  template:
+    src: chrome-policy.json.j2
+    dest: /etc/opt/chrome/policies/managed/chrome-policy-from-provision.json
+    mode: 0755
+  become: yes

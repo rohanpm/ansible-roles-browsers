@@ -1,0 +1,5 @@
+{
+{% if chrome_auth_server_whitelist|default(False) %}
+  "AuthServerWhitelist": "{{ chrome_auth_server_whitelist }}",
+{% endif %}
+}
